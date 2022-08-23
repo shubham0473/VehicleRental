@@ -317,7 +317,11 @@ class VehicleFactory(object):
             "Car" : Car,
             "Bike": Bike,
             "Van" : Van,
-            "Bus" : Bus
+            "Bus" : Bus,
+            "CAR": Car,
+            "BIKE": Bike,
+            "VAN": Van,
+            "BUS": Bus
         }
         try:
             return vehicles[vtype](vtype=vtype, **kwargs)

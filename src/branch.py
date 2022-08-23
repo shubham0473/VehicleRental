@@ -1,5 +1,3 @@
-from src.vehicle import VehicleFactory
-
 class Branch():
     def __init__(self, name, vtypes) -> None:
         self._name = name

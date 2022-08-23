@@ -1,7 +1,7 @@
 import unittest
 from src.rental_service import RentalService
 
-class Test(unittest.TestCase):
+class RentalSystemTest(unittest.TestCase):
     
     rs = RentalService()
     

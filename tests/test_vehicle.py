@@ -2,7 +2,7 @@ import unittest
 import unittest
 from src.vehicle import Car
 
-class Test(unittest.TestCase):
+class VehicleTest(unittest.TestCase):
     
     car = Car("Car", "C1", 1000)
     

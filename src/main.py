@@ -1,19 +1,20 @@
+import sys
+
 from rental_service import RentalService
 
+commands = []
+with open(sys.argv[1]) as f:
+    commands = [l.split() for l in f.readlines()]
 
 bs = RentalService()
 
-bs.add_branch("B1", ["Car", "Bike", "Van"])
-
-print(bs.add_vehicle("B1", "Car", "V1", 500))
-print(bs.add_vehicle("B1", "Car", "V2", 1000))
-print(bs.add_vehicle("B1", "Bike", "V3", 250))
-print(bs.add_vehicle("B1", "Bike", "V4", 300))
-print(bs.add_vehicle("B1", "Bus", "V5", 2500))
-
-print(bs.book_vehicle("B1", "Van", 1, 5))
-print(bs.book_vehicle("B1", "Car", 1, 3))
-print(bs.book_vehicle("B1", "Bike", 2, 3))
-print(bs.book_vehicle("B1", "Bike", 2, 5))
-print(bs.book_vehicle("B1", "Bike", 2, 5))
-print(bs.display_vehicles("B1", 1, 5))
+for command in commands:
+    if command[0] == "ADD_BRANCH":
+        print("Types = ", [x for x in command[2].split(",")])
+        print(bs.add_branch(command[1], [x for x in command[2].split(",")]))
+    elif command[0] == "ADD_VEHICLE":
+        print(bs.add_vehicle(command[1], command[2], command[3], int(command[4])))
+    elif command[0] == "BOOK":
+        print(bs.book_vehicle(command[1], command[2], int(command[3]), int(command[4])))
+    elif command[0] == "DISPLAY_VEHICLES":
+        print(bs.display_vehicles(command[1], int(command[2]), int(command[3])))

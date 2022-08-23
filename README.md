@@ -14,6 +14,7 @@ This repository demonstrates a simple implementation of Vehicle rental system us
 ```bash
 https://github.com/shubham0473/VehicleRental.git
 cd VehicleRental
+export PYTHONPATH="${PYTHONPATH}:`pwd`"
 ```
 
 This system works on native python (3.9) packages so no dependency installation is required
@@ -23,7 +24,13 @@ This system works on native python (3.9) packages so no dependency installation 
 The code takes input from a text file located in `src` folder where the input format is specified. To run the code, execute the following command from the top folder:
 
 ```bash
-python src/main.py --input_file src/input.txt
+python src/main.py src/input.txt
+```
+
+To run the unit tests, execute the following command:
+
+```bash
+python -m unittest
 ```
 
 ## Future Improvements

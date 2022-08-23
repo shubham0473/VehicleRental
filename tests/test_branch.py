@@ -3,7 +3,7 @@ import unittest
 from src.branch import Branch
 from src.vehicle import Bike, Car, Van
 
-class Test(unittest.TestCase):
+class BranchTest(unittest.TestCase):
     
     branch = Branch("B1", ["Car", "Bike", "Bus"])
     
@@ -40,6 +40,7 @@ class Test(unittest.TestCase):
 
         result = {
             'B1' : 250,
+            'C1': 1000,
             'C2': 1250,
             'C3': 2000,
             'C4': 3000

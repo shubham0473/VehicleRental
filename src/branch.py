@@ -1,5 +1,4 @@
-from vehicle import VehicleFactory
-from exceptions import BranchNotFoundException, VehicleAddException, VehicleTypeNotFoundException
+from src.vehicle import VehicleFactory
 
 class Branch():
     def __init__(self, name, vtypes) -> None:
@@ -33,10 +32,13 @@ class Branch():
         return {k: v for k, v in sorted(available_vehicles.items(), key=lambda item: item[1])}
     
     def add_vehicle(self, vehicle, vtype):
+        if vtype not in self.vtypes:
+            return False
         if vtype not in self.vehicles:
             self.vehicles[vtype] = [vehicle]
         else:
             self.vehicles[vtype].append(vehicle)
+        return True
             
     def book_vehicle(self, vtype, start_time, end_time):
         if vtype in self.vehicles:
@@ -45,12 +47,12 @@ class Branch():
                     return vehicle.book(start_time, end_time)            
         else:
             return -1
+
     
-    def check_if_vtype_available(self, vtype, start_time, end_time):
-        if vtype in self.vehicles:
-            for vehicle in self.vehicles[vtype]:
-                if vehicle.available:
-                    return True
+    def end_booking(self, vid, vtype):
+        for vehicle in self.vehicles[vtype]:
+            if vehicle.vid == vid:
+                vehicle.end_booking()
+                return True
         return False
-    
     

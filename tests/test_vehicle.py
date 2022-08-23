@@ -32,7 +32,3 @@ class Test(unittest.TestCase):
         self.assertEqual(self.car.start_time, -1)
         self.assertEqual(self.car.end_time, -1)
         self.assertEqual(self.car.available, True)
-    
-if __name__ == '__main__':
-    # begin the unittest.main()
-    unittest.main()

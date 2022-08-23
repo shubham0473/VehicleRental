@@ -1,5 +1,5 @@
-from vehicle import VehicleFactory
-from branch import Branch
+from src.vehicle import VehicleFactory
+from src.branch import Branch
 
 class RentalService():
     def __init__(self) -> None:

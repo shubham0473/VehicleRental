@@ -19,7 +19,7 @@ class DynamicPricingStrategy(PricingStrategy):
     
     def __init__(self, premium=0.1, booking_cap=0.8) -> None:
         self._premium = premium
-        self._booking_cap = cap
+        self._booking_cap = booking_cap
         
     @property
     def premium(self):

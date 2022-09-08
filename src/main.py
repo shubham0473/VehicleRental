@@ -10,8 +10,7 @@ bs = RentalService()
 
 for command in commands:
     if command[0] == "ADD_BRANCH":
-        print("Types = ", [x for x in command[2].split(",")])
-        print(bs.add_branch(command[1], [x for x in command[2].split(",")]))
+        print(bs.add_branch(command[1], [x for x in command[2].split(",")], "Simple" if len(command) == 3 else command[3]))
     elif command[0] == "ADD_VEHICLE":
         print(bs.add_vehicle(command[1], command[2], command[3], int(command[4])))
     elif command[0] == "BOOK":

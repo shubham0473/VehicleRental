@@ -2,10 +2,12 @@ import unittest
 import unittest
 from src.branch import Branch
 from src.vehicle import Bike, Car, Van
+from src.pricing import SimplePricingStrategy
+from src.selection import CheapestVehicleSelector
 
 class BranchTest(unittest.TestCase):
     
-    branch = Branch("B1", ["Car", "Bike", "Bus"])
+    branch = Branch("B1", ["Car", "Bike", "Bus"], SimplePricingStrategy, CheapestVehicleSelector)
     
     def test_1_set_name(self):
         self.assertEqual("B1", self.branch.name)

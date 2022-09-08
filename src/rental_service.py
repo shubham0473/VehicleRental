@@ -35,11 +35,8 @@ class RentalService():
                     self.branches[bname].add_vehicle(v, vtype)
                     return True
                 else:
-                    # raise VehicleAddException()
                     return False
             else:
-                # raise VehicleTypeNotFoundException()
                 return False
         else:
-            # raise BranchNotFoundException()
             return False

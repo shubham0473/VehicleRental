@@ -17,9 +17,9 @@ class SimplePricingStrategy(PricingStrategy):
 
 class DynamicPricingStrategy(PricingStrategy):
     
-    def __init__(self, premium=0.1, cap=0.8) -> None:
+    def __init__(self, premium=0.1, booking_cap=0.8) -> None:
         self._premium = premium
-        self._cap = cap
+        self._booking_cap = cap
         
     @property
     def premium(self):
@@ -30,15 +30,15 @@ class DynamicPricingStrategy(PricingStrategy):
         self._premium = val
 
     @property
-    def cap(self):
-        return self._cap
+    def booking_cap(self):
+        return self._booking_cap
     
-    @cap.setter
-    def cap(self, val):
-        self._cap = val
+    @booking_cap.setter
+    def booking_cap(self, val):
+        self._booking_cap = val
 
-    def getFare(self, base_fare, time, current_cap):
-        if current_cap >= self.cap:
+    def getFare(self, base_fare, time, pct_booked):
+        if pct_booked >= self.booking_cap:
             return (1+self.premium)*base_fare*time
         else:
             return base_fare*time

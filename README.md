@@ -35,6 +35,6 @@ python -m unittest
 
 ## Future Improvements
 
-- Dynamic pricing can be implemented
+- 
 - Since vehicle id and branch name are supplied by the user, there can be a clash and create inconsistency, so that can be automated
 - A clock can be incorporated as a feature to track bookings and fare

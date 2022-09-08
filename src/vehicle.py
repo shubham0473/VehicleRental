@@ -1,39 +1,31 @@
-from abc import ABC, abstractmethod, abstractclassmethod, abstractproperty
-from sys import base_prefix
-import enum
+from abc import ABC, abstractmethod
 
-# class VehicleTypes(enum.Enum):
 class Vehicle(ABC):
-    def __init__(self) -> None:
-        pass
-        
     
-    @property
     @abstractmethod
-    def base_price():
+    def base_price(self):
         pass
-    
-    
-    @property
     @abstractmethod
-    def vid():
+    def vid(self):
+        pass    
+    @abstractmethod
+    def vtype(self):
         pass
-    
-    
-    @property
     @abstractmethod
-    def vtype():
-        pass
-    
-    @property
-    @abstractmethod
-    def start_time():
+    def start_time(self):
         pass   
-    
-    @property
     @abstractmethod
-    def end_time():
+    def end_time(self):
         pass
+    def __gt__(self, other):
+        return self.base_price > other.base_price
+    def __lt__(self, other):
+        return self.base_price < other.base_price
+    def __eq__(self, other):
+        return (self.base_price == other.base_price) and (self.vid == other.vid)
+    def __repr__(self):
+        return f"{self.vid}:{self.vtype}@{self.base_price}"
+    
 
 class Car(Vehicle):
     def __init__(self, vtype, vid, price):
@@ -49,7 +41,7 @@ class Car(Vehicle):
         return self._base_price
     
     @base_price.setter
-    def set_base_price(self, base_price):
+    def base_price(self, base_price):
         self._base_price = base_price
     
     @property
